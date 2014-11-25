@@ -1,0 +1,46 @@
+[
+    {
+        "name" : "Mario" ,
+        "alias" : "mario"
+    },
+    {
+        "name" : "Galaxian" ,
+        "alias" : "galaxian"
+    },
+    {
+        "name" : "Contra" ,
+        "alias" : "contra"
+    },
+    {
+        "name" : "Lode Runner" ,
+        "alias" : "lode-runner"
+    },
+    {
+        "name" : "Star Soldier" ,
+        "alias" : "star-soldier"
+    },
+    {
+        "name" : "B-Wings" ,
+        "alias" : "b-wings"
+    }    ,
+    {
+        "name" : "Jurassic Park" ,
+        "alias" : "jurassic-park"
+    }    ,
+    {
+        "name" : "Bomberman" ,
+        "alias" : "bomberman"
+    },
+    {
+        "name" : "Battletoads" ,
+        "alias" : "battletoads"
+    },
+    {
+        "name" : "Donkey Kong" ,
+        "alias" : "donkey-kong"
+    },
+    {
+        "name" : "Battle City" ,
+        "alias" : "battle-city"
+    }
+]

@@ -1,0 +1,112 @@
+@font-face
+{
+    font-family: 'Emulogic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/emulogic.ttf');
+}
+
+.select-menu
+{
+    width: 32%;
+    letter-spacing: 2px;
+    font-family: "Emulogic", Helvetica, Arial, sans-serif;
+    color: white;
+    text-shadow: 2px 1px 0 black;
+}
+
+a.menu-element,
+a.menu-element:visited
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a.menu-element:hover,
+a.menu-element:visited:hover
+{
+    text-decoration: underline;
+}
+
+a.back-button,
+a.back-button:visited
+{
+    color: Orange;
+    text-decoration: none;
+}
+
+a.back-button:hover,
+a.back-button:visited:hover
+{
+    text-decoration: underline;
+}
+
+ul
+{
+    padding: 0;
+}
+
+li
+{
+    list-style-type: none;
+}
+
+.seagull
+{
+    position: absolute;
+    width: 100px;
+    z-index: 999;
+}
+
+.game-extended
+{
+    font-family: "Emulogic", Helvetica, Arial, sans-serif;
+    color: white;
+
+}
+
+.game-extended .title
+{
+    margin: auto;
+    text-align: center;
+    padding-top: 35px;
+    font-size: 35px;
+
+}
+
+.emulator-wrapper,
+.loading-text,
+.press-start-text
+{
+    margin: auto;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.hidden
+{
+    opacity: 0;
+}
+.game-extended.active .press-start-text
+{
+    opacity: 0;
+}
+body
+{
+    background-color: #000000;
+}
+
+.game-extended.pause .emulator-wrapper,
+.game-extended.pause #emulator
+{
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden;
+}
+
+.game-extended.active .emulator-wrapper,
+.game-extended.active #emulator
+{
+    min-height: 480px;
+    min-width: 512px;
+}
