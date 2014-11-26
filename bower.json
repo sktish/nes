@@ -1,16 +1,16 @@
 {
-  "name": "nes",
-  "version": "0.0.0",
-  "authors": [
-    "User <pylon321>"
-  ],
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "angular-route": "~1.3.4",
-    "angular": "~1.3.4",
-    "jquery": "~2.1.1",
-    "jquery-backstretch": "~2.0.4",
-    "swfobject": "*"
-  }
+    "name": "nes",
+    "version": "0.0.0",
+    "authors": [
+        "Skeetish <stickahz@gmail.com>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "angular-route": "~1.3.4",
+        "angular": "~1.3.4",
+        "jquery": "~2.1.1",
+        "jquery-backstretch": "~2.0.4",
+        "swfobject": "*"
+    }
 }
