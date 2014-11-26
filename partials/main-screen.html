@@ -10,7 +10,7 @@
         <gamelist>
             <ul>
                 <li ng-repeat="game in games">
-                    <a href="/#/games/{{game.alias}}" class="menu-element">{{gameNumber($index)}}.{{game.name}}</a>
+                    <a href="/#/games/{{game.alias}}" class="menu-element">{{getGameNumber($index)}}.{{game.name}}</a>
                 </li>
             </ul>
         </gamelist>

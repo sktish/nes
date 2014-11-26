@@ -5,7 +5,7 @@ app.controller('ScreenCtrl', ['$scope', '$http', '$interval', '$rootScope', 'gam
         $scope.screenNumber = 0;
         $scope.games = games.getList();
 
-        $scope.gameNumber = function (index) {
+        $scope.getGameNumber = function (index) {
             var string = index.toString();
             var nullCount = new Array(5 - string.length);
             return nullCount.join('0') + string;
