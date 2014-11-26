@@ -8,7 +8,7 @@ app.directive('audioplayer', function () {
         replace: true,
         link: function (scope, element, attrs) {
             var audio = document.getElementById('audio');
-            //audio.play();
+            audio.play();
         }
     }
 });
@@ -79,7 +79,12 @@ app.directive('bird', ['$window', 'consts', function ($window, consts) {
                 var imgPath = '/img/remastered/' + direction + imgType;
 
                 element
-                    .css({'left': startPosition.coords.left, 'top': startPosition.coords.top})
+                    .css({
+                        'left': startPosition.coords.left,
+                        'top': startPosition.coords.top,
+                        'position': 'absolute',
+                        'z-index': 999
+                    })
                     .attr('src', imgPath);
             };
 
@@ -124,6 +129,37 @@ app.directive('gamelist', ['$window', function ($window) {
             };
             angular.element($window).bind('resize', resize);
             resize();
+        }
+    }
+}]);
+
+app.directive('blinkingText', ['$interval', function ($interval) {
+    return function (scope, element, attrs) {
+        $interval(function () {
+            element.toggleClass('hidden');
+        }, 750);
+    }
+}]);
+
+app.directive('background', ['$interval', function ($interval) {
+    return {
+        scope: true,
+        link: function (scope, element, attrs) {
+
+            scope.screenNumber = attrs['startScreen'];
+            var nextScreen = function () {
+                $.backstretch("/img/remastered/" + scope.screenNumber + ".png", {speed: 500});
+                scope.screenNumber < 7
+                    ? scope.screenNumber++
+                    : scope.screenNumber = 0
+            };
+            var interval = $interval(nextScreen, 5000);
+            scope.$parent.$on('$destroy', function () {
+                $interval.cancel(interval);
+                $('.backstretch').remove();
+            });
+            nextScreen();
+
         }
     }
 }]);

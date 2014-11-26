@@ -5,48 +5,21 @@ app.controller('ScreenCtrl', ['$scope', '$http', '$interval', '$rootScope', 'gam
         $scope.screenNumber = 0;
         $scope.games = games.getList();
 
-        var interval;
-
-        $scope.init = function () {
-            $scope.changeScreen();
-            $scope.setTimer();
-        };
-
-        $scope.setTimer = function () {
-            interval = $interval($scope.changeScreen, 5000);
-        };
-
-        $scope.changeScreen = function () {
-            $.backstretch("/img/remastered/" + $scope.screenNumber + ".png", {speed: 500});
-            $scope.screenNumber < 7
-                ? $scope.screenNumber++
-                : $scope.screenNumber = 0
-
-        };
         $scope.gameNumber = function (index) {
             var string = index.toString();
             var nullCount = new Array(5 - string.length);
             return nullCount.join('0') + string;
         };
 
-        $scope.$on('$destroy', function () {
-            $interval.cancel(interval);
-            $('.backstretch').remove();
-        });
     }
 ])
 ;
 
-app.controller('GamesCtrl', ['$scope', '$routeParams', 'emubox', '$rootScope', 'games', '$interval',
-    function ($scope, $routeParams, emubox, $rootScope, games, $interval) {
-
-        var view = $('[ng-view]');
-        var textBlinking = null;
+app.controller('GamesCtrl', ['$scope', '$routeParams', 'emubox', '$rootScope', 'games',
+    function ($scope, $routeParams, emubox, $rootScope, games) {
 
         $scope.gameData = null;
         $scope.alias = $routeParams.alias;
-
-
         $scope.init = function () {
 
             var onResume = '' +
@@ -62,18 +35,12 @@ app.controller('GamesCtrl', ['$scope', '$routeParams', 'emubox', '$rootScope', '
                 '} )';
 
             var onAfterLoad = '' +
-                '$(".loading-text").addClass("hidden");$(".press-start-text").removeClass("hidden");';
+                '$(".game-extended").removeClass("loading")';
 
             emubox.loadGame($scope.alias, onResume, onPause, onAfterLoad);
             $scope.setGameData();
-            $scope.setVisual();
         };
 
-        $scope.setVisual = function () {
-//            textBlinking = $interval( function () {
-//                $( '.blinking-text' ).fadeToggle( 0 )
-//            } , 750 );
-        };
 
         $scope.setGameData = function () {
             $scope.gameData = games.find($scope.alias);
