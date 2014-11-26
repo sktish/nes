@@ -42,21 +42,6 @@ app.service('games', ['$http',
 
 app.service('emubox', ['$window', function ($window) {
 
-    var resizeElements = function () {
-
-        var emulator = $('#emulator');
-        var wrapper = $('.emulator-wrapper');
-
-        var emulatorWidth = parseInt(512) * ($window.innerWidth / 1440) + 'px';
-        var emulatorHeight = parseInt(480) * ($window.innerWidth / 1440) + 'px';
-
-        emulator.css({'width': emulatorWidth, 'height': emulatorHeight});
-        wrapper.css({'width': emulatorWidth, 'height': emulatorHeight});
-
-        localStorage.setItem('emulatorWidth', emulatorWidth);
-        localStorage.setItem('emulatorHeight', emulatorHeight);
-    };
-
 
     var loadGame = function (alias, onResume, onPause, onAfterLoad) {
 
@@ -76,7 +61,6 @@ app.service('emubox', ['$window', function ($window) {
         swfobject.embedSWF('flash/Nesbox.swf', 'emulator', '426', '400', '11.2.0', '/flash/expressInstall.swf', flashvars, params, attributes);
 
     }
-    angular.element($window).bind('resize', resizeElements);
     return {loadGame: loadGame};
 
 }

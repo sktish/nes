@@ -163,3 +163,21 @@ app.directive('background', ['$interval', function ($interval) {
         }
     }
 }]);
+
+app.directive('emuboxScale', ['$window', function ($window) {
+    return {
+        link: function (scope, element, attrs) {
+
+            var resize = function () {
+                scope.emulatorWidth = parseInt(512) * ($window.innerWidth / 1440) + 'px';
+                scope.emulatorHeight = parseInt(480) * ($window.innerWidth / 1440) + 'px';
+
+                element.css({'width': scope.emulatorWidth, 'height': scope.emulatorHeight});
+
+                localStorage.setItem('emulatorWidth', scope.emulatorWidth);
+                localStorage.setItem('emulatorHeight', scope.emulatorHeight);
+            };
+            angular.element($window).bind('resize', resize);
+        }
+    }
+}]);
