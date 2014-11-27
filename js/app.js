@@ -11,7 +11,7 @@ app.config(function ($routeProvider) {
                 }
             }
         }).
-        when('/games/:alias', {
+        when('/:alias', {
             templateUrl: 'partials/game.html',
             controller: 'GamesCtrl'
         }).

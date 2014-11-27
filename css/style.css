@@ -1,11 +1,13 @@
-@font-face {
+@font-face
+{
     font-family: 'Emulogic';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/emulogic.ttf');
 }
 
-.main .select-menu {
+.main .select-menu
+{
     width: 32%;
     letter-spacing: 2px;
     font-family: "Emulogic", Helvetica, Arial, sans-serif;
@@ -14,50 +16,70 @@
 }
 
 a.menu-element,
-a.menu-element:visited {
+a.menu-element:visited
+{
     color: #FFFFFF;
     text-decoration: none;
 }
 
 a.menu-element:hover,
-a.menu-element:visited:hover {
+a.menu-element:visited:hover
+{
     text-decoration: underline;
 }
 
 a.back-button,
-a.back-button:visited {
+a.back-button:visited
+{
     color: Orange;
     text-decoration: none;
 }
 
 a.back-button:hover,
-a.back-button:visited:hover {
+a.back-button:visited:hover
+{
     text-decoration: underline;
 }
 
-ul {
+ul
+{
     padding: 0;
 }
 
-li {
+li
+{
     list-style-type: none;
 }
 
-body {
-    background-color: #000000;
+body
+{
+    background-color: black;
 }
 
-.hidden {
+.background
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.hidden
+{
     opacity: 0
 }
 
-.game-extended {
+.game-extended
+{
     font-family: "Emulogic", Helvetica, Arial, sans-serif;
     color: white;
 
 }
 
-.game-extended .title {
+.game-extended .title
+{
     margin: auto;
     text-align: center;
     padding-top: 35px;
@@ -67,7 +89,8 @@ body {
 
 .game-extended .emulator-wrapper,
 .game-extended .loading-text,
-.game-extended .press-start-text {
+.game-extended .press-start-text
+{
     margin: auto;
     text-align: center;
     padding-top: 5px;
@@ -76,28 +99,33 @@ body {
 .game-extended.loading .emulator-wrapper,
 .game-extended.loading #emulator,
 .game-extended.pause .emulator-wrapper,
-.game-extended.pause #emulator {
+.game-extended.pause #emulator
+{
     width: 0 !important;
     height: 0 !important;
     overflow: hidden;
 }
 
 .game-extended.active .emulator-wrapper,
-.game-extended.active #emulator {
+.game-extended.active #emulator
+{
     min-height: 480px;
     min-width: 512px;
 }
 
 .game-extended.active .loading-text,
-.game-extended.pause .loading-text {
+.game-extended.pause .loading-text
+{
     opacity: 0;
 }
 
-.game-extended.loading .loading-text {
+.game-extended.loading .loading-text
+{
     opacity: 1;
 }
 
 .game-extended.active .press-start-text,
-.game-extended.loading .press-start-text {
+.game-extended.loading .press-start-text
+{
     opacity: 0;
 }
