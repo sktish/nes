@@ -14,11 +14,12 @@ app.directive( 'audioplayer' , function () {
 } );
 app.directive( 'bird' , ['$window' , 'consts' , function ( $window , consts ) {
     return {
-        template : '<img class="seagull">' ,
+        template : '<div><img class="seagull"></div>' ,
         restrict : 'E' ,
         replace  : true ,
         link     : function ( scope , element , attrs ) {
 
+            var img = element.find( 'img' );
             var waypoints = JSON.parse( attrs['waypoints'] );
             var path = [];
             var createAnimation = function () {
@@ -38,7 +39,7 @@ app.directive( 'bird' , ['$window' , 'consts' , function ( $window , consts ) {
                         var imgFile = calculateVDirection( nextPosition , position );
                         var direction = calculateHDirection( nextPosition , position )
                         var imgPath = '/img/remastered/' + direction + imgFile;
-                        element.attr( 'src' , imgPath );
+                        img.attr( 'src' , imgPath );
                     };
 
                     var animPos = {
@@ -78,14 +79,13 @@ app.directive( 'bird' , ['$window' , 'consts' , function ( $window , consts ) {
                 var direction = calculateHDirection( nextPosition.coords , startPosition.coords );
                 var imgPath = '/img/remastered/' + direction + imgType;
 
-                element
-                    .css( {
-                        'left'     : startPosition.coords.left ,
-                        'top'      : startPosition.coords.top ,
-                        'position' : 'absolute' ,
-                        'z-index'  : 999
-                    } )
-                    .attr( 'src' , imgPath );
+                element.css( {
+                    'left'     : startPosition.coords.left ,
+                    'top'      : startPosition.coords.top ,
+                    'position' : 'absolute' ,
+                    'z-index'  : 999
+                } );
+                img.attr( 'src' , imgPath );
             };
 
             var applyAnimation = function () {
@@ -98,7 +98,7 @@ app.directive( 'bird' , ['$window' , 'consts' , function ( $window , consts ) {
             var resizeBird = function () {
                 var newHeight = $window.innerHeight / 25;
                 var newWidth = newHeight * consts.imgAspectCoeff;
-                element.css( 'height' , newHeight ).css( 'width' , newWidth );
+                img.css( 'height' , newHeight ).css( 'width' , newWidth );
             };
 
             (function init() {
@@ -148,7 +148,7 @@ app.directive( 'background' , ['$interval' , '$window' , function ( $interval , 
             scope.screenNumber = attrs['startScreen'];
             var back = null;
 
-            var init = function () {
+            var setVisual = function () {
                 back = element.clone();
                 element.after( back );
 
@@ -185,8 +185,8 @@ app.directive( 'background' , ['$interval' , '$window' , function ( $interval , 
             var interval = $interval( nextScreen , attrs['interval'] * 1000 );
             angular.element( $window ).bind( 'resize' , resize );
 
-            (function () {
-                init();
+            (function init() {
+                setVisual();
                 resize();
                 nextScreen();
             })();
