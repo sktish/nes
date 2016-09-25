@@ -166,8 +166,8 @@ app.directive( 'background' , ['$interval' , '$window' , function ( $interval , 
             };
 
             var nextScreen = function () {
-                var backUrl = "url('/img/remastered/" + scope.screenNumber + "_BACK.png')";
-                var imgUrl = "url('/img/remastered/" + scope.screenNumber + ".png')";
+                var backUrl = "url('img/remastered/" + scope.screenNumber + "_BACK.png')";
+                var imgUrl = "url('img/remastered/" + scope.screenNumber + ".png')";
 
                 $( element )
                     .animate( {'opacity' : 0} , 75 , function () {
