@@ -3,7 +3,7 @@ app.service('games', ['$http',
 
 
         var games = [];
-        var promise = $http.get('/data/games.json').success(function (data) {
+        var promise = $http.get('data/games.json').success(function (data) {
             games = data;
             return data;
         });
