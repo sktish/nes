@@ -38,7 +38,7 @@ app.directive( 'bird' , ['$window' , 'consts' , function ( $window , consts ) {
 
                         var imgFile = calculateVDirection( nextPosition , position );
                         var direction = calculateHDirection( nextPosition , position )
-                        var imgPath = '/img/remastered/' + direction + imgFile;
+                        var imgPath = 'img/remastered/' + direction + imgFile;
                         img.attr( 'src' , imgPath );
                     };
 
@@ -77,7 +77,7 @@ app.directive( 'bird' , ['$window' , 'consts' , function ( $window , consts ) {
                 var nextPosition = path[nextPositionIndex];
                 var imgType = calculateVDirection( nextPosition.coords , startPosition.coords );
                 var direction = calculateHDirection( nextPosition.coords , startPosition.coords );
-                var imgPath = '/img/remastered/' + direction + imgType;
+                var imgPath = 'img/remastered/' + direction + imgType;
 
                 element.css( {
                     'left'     : startPosition.coords.left ,
